@@ -35,6 +35,9 @@ export default function LoginForm() {
         router.push("/dashboard");
       }
     } catch (e) {
+      if(e instanceof Error){
+        return;
+      }
       setIsLoading(false);
       setError("Check your Credentials");
     }
