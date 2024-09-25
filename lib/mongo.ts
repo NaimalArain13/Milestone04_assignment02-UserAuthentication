@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const mongoUri = "mongodb+srv://naimalAuth:MongoDB@mycluster01.kj79t.mongodb.net/AuthDB"
+const mongoUri = process.env.MONGODB_URI
 
 if(!mongoUri) {
     throw new Error("Please provide mongodb connection string variable in .env.local file")
@@ -12,7 +12,7 @@ export  async function dbConnect(){
         return;
     }
     try {
-       const{ connection }=  await mongoose.connect(mongoUri);
+       const{ connection }=  await mongoose.connect(mongoUri as string);
         isConnected = connection.readyState === 1;
         console.log("Connected to mongodb" , connection.readyState === 1)
     } catch (error) {
