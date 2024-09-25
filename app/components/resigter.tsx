@@ -42,7 +42,7 @@ export default function Register() {
       });
 
       if (response.status === 201) {
-        router.push("/auth/signin");
+        router.push("/");
       } else if (response.status === 400) {
         setError("User already exists.");
       } else {
