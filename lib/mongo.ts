@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const mongoUri = process.env.MONGODB_URI as string
+const mongoUri = "mongodb+srv://naimalAuth:MongoDB@mycluster01.kj79t.mongodb.net/AuthDB"
 
 if(!mongoUri) {
     throw new Error("Please provide mongodb connection string variable in .env.local file")
